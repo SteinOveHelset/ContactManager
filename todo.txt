@@ -1,0 +1,14 @@
+Set up new project
+Create app for core
+Create app for contact
+Create front page
+    Tailwind css
+Database model category
+Database model contact
+Initialize database
+Make it possible to add contacts
+Show list of contacts
+Edit contacts
+Delete contacts
+Search
+Add a separate app name for contact
