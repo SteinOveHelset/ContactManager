@@ -1,0 +1,35 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+    <div class="mb-4">
+        <form method="get" action=".">
+            <input type="text" name="query" placeholder="Search..." class="w-full py-4 px-6 rounded-xl bg-gray-700 text-white">
+        </form>
+    </div>
+
+    <div class="space-y-5">
+        {% for contact in contacts %}
+            <div class="px-4 py-6 text-center bg-gray-500 rounded-xl">
+                <h2 class="mb text-xl">{{ contact.first_name }} {{ contact.last_name }}</h2>
+                <h3 class="mb-5 text-sm text-gray-900">{{ contact.category.title }}</h3>
+
+                <p><strong>E-mail:</strong> {{ contact.email }}</p>
+                <p><strong>Phone:</strong> {{ contact.phone }}</p>
+
+                <p class="mt-6">
+                    {{ contact.address }}<br>
+                    {{ contact.zipcode }} {{ contact.city }}
+                </p>
+
+                <div class="mt-6">
+                    <a href="{% url 'contact:edit' contact.id %}" class="px-4 py-2 bg-emerald-800 text-white rounded-xl">Edit</a>
+                    <a href="{% url 'contact:delete' contact.id %}" class="px-4 py-2 bg-red-800 text-white rounded-xl">Delete</a>
+                </div>
+            </div>
+        {% empty %}
+            <div class="px-4 py-6 text-center bg-gray-500 rounded-xl">
+                <p>No results...</p>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

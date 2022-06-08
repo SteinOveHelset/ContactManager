@@ -1,0 +1,58 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+    <div class="p-6 bg-gray-400 rounded-xl">
+        <form method="post" action="." class="space-y-4">
+            {% csrf_token %}
+
+            <div>
+                <label>Category</label><br>
+                <select name="category" class="w-full py-4 px-6 rounded-xl bg-gray-700 text-white">
+                    <option value="">Please select</option>
+                    {% for category in categories %}
+                        <option value="{{ category.id }}">{{ category.title }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div>
+                <label>First name</label><br>
+                <input type="text" name="first_name" class="w-full py-4 px-6 rounded-xl bg-gray-700 text-white">
+            </div>
+
+            <div>
+                <label>Last name</label><br>
+                <input type="text" name="last_name" class="w-full py-4 px-6 rounded-xl bg-gray-700 text-white">
+            </div>
+
+            <div>
+                <label>Email</label><br>
+                <input type="text" name="email" class="w-full py-4 px-6 rounded-xl bg-gray-700 text-white">
+            </div>
+
+            <div>
+                <label>Phone</label><br>
+                <input type="text" name="phone" class="w-full py-4 px-6 rounded-xl bg-gray-700 text-white">
+            </div>
+
+            <div>
+                <label>Address</label><br>
+                <input type="text" name="address" class="w-full py-4 px-6 rounded-xl bg-gray-700 text-white">
+            </div>
+
+            <div>
+                <label>Zipcode</label><br>
+                <input type="text" name="zipcode" class="w-full py-4 px-6 rounded-xl bg-gray-700 text-white">
+            </div>
+
+            <div>
+                <label>City</label><br>
+                <input type="text" name="city" class="w-full py-4 px-6 rounded-xl bg-gray-700 text-white">
+            </div>
+
+            <div>
+                <button class="p-3 bg-emerald-400 text-white text-xl rounded-xl">Submit</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

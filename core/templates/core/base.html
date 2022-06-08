@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body class="bg-gray-200">
+        <nav class="py-6 px-4 bg-gray-900 flex justify-between items-center">
+            <h1 class="text-white text-2xl">Contact Manager</h1>
+
+            <a href="{% url 'contact:add' %}" class="p-3 bg-emerald-400 text-white text-xl rounded-xl">+</a>
+        </nav>
+
+        <div class="px-6 py-4">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </body>
+</html>
