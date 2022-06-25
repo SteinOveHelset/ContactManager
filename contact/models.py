@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 class Category(models.Model):
@@ -12,3 +13,4 @@ class Contact(models.Model):
     address = models.CharField(max_length=255)
     zipcode = models.CharField(max_length=255)
     city = models.CharField(max_length=255)
+    created_by = models.ForeignKey(User, related_name='contacts', on_delete=models.CASCADE)

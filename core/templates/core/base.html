@@ -9,7 +9,13 @@
         <nav class="py-6 px-4 bg-gray-900 flex justify-between items-center">
             <h1 class="text-white text-2xl">Contact Manager</h1>
 
-            <a href="{% url 'contact:add' %}" class="p-3 bg-emerald-400 text-white text-xl rounded-xl">+</a>
+            {% if request.user.is_authenticated %}
+                <a href="{% url 'contact:add' %}" class="p-3 bg-emerald-400 text-white text-xl rounded-xl">+</a>
+                <a href="/logout/" class="p-3 bg-emerald-400 text-white text-xl rounded-xl">Log out</a>
+            {% else %}
+                <a href="/login/" class="p-3 bg-emerald-400 text-white text-xl rounded-xl">Log in</a>
+                <a href="/signup/" class="p-3 bg-emerald-400 text-white text-xl rounded-xl">Sign up</a>
+            {% endif %}
         </nav>
 
         <div class="px-6 py-4">
